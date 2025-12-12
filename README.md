@@ -20,11 +20,15 @@ vasara [universe] [OPTIONS]
 *   `-c`, `--count <COUNT>`: Number of lore snippets to fetch.
     *   Default: `1`
 *   `-p`, `--paragraph`: Fetch a full paragraph instead of a snippet.
-*   `--retries <RETRIES>`: Number of retries to attempt before cancelling.
-    *   Default: `5`
+*   `-m`, `--max-length <MAX_LENGTH>`: Maximum length of the snippets.
+    *   Default: `190`
 *   `-f`, `--format <FORMAT>`: Output format.
     *   Choices: `text`, `json`
     *   Default: `text`
+*   `--retries <RETRIES>`: Number of retries to attempt before cancelling.
+    *   Default: `5`
+*   `--max-workers <RETRIES>`: Max number of worker threads used for concurrently querying the wiki.
+    *   Default: `500`
 
 ## Examples
 
