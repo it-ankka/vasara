@@ -6,6 +6,9 @@ from argparse import ArgumentParser
 import requests
 import wikitextparser as wtp
 
+NAME = "Vasara"
+DESCRIPTION = "A fun little command-line tool for fetching random Warhammer lore snippets from the wiki."
+
 URLS = {
     "40k": "https://warhammer40k.fandom.com/api.php",
     "fantasy": "https://warhammerfantasy.fandom.com/api.php",
@@ -103,10 +106,7 @@ def get_lore(url, retry_count, full_paragraph=False):
 
 
 def main():
-    parser = ArgumentParser(
-        "PyLore",
-        description="A small fun commandline utility for getting random Warhammer lore straight in your terminal",
-    )
+    parser = ArgumentParser("Vasara", description=DESCRIPTION)
 
     parser.add_argument(
         "universe",
