@@ -1,0 +1,22 @@
+name: Build and publish to PyPi
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    environment: publish
+    permissions:
+      contents: write
+    steps:
+      - name: Publish PyPi package
+        uses: code-specialist/pypi-poetry-publish@v1
+        with:
+          BRANCH: ${{ vars.BRANCH || 'main' }}
+          PYTHON_VERSION: ${{ vars.PYTHON_VERSION || '3.13' }}
+          POETRY_VERSION: ${{ vars.POETRY_VERSION || '2.0.1' }}
+          POETRY_CORE_VERSION: ${{vars.POETRY_CORE_VERSION || '2.0.1' }}
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_REGISTRY_PASSWORD: ${{ secrets.PYPI_TOKEN }}
